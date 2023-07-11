@@ -14,10 +14,16 @@ class Empleado{
         float calcularSueldoMensual();
         string nombreCompleto();
 
+        // Métodos Observadors (getters) - obtener la información
+        string getNombre() const; // Prohibo alterar el estado del objeto, el valor
+        string getApellido() const;
+        float getSueldoAnual() const;
+        const int getNumeroPagos() const;
+
     private: // Visibilidad para atributos como metodos, desde el interior se puede
         string nombre, apellido;
         float sueldoAnual;
-        static const int numeroPagos = 2;
+        static const int numeroPagos = 2; //Static const ??
 };
 
 //Declaración de métodos
@@ -27,6 +33,11 @@ float Empleado::calcularSueldoMensual(){
 string Empleado::nombreCompleto(){
     return (nombre + " " + apellido);
 }
+// Getters - devuelven una copia del valor que se desea obtener
+string Empleado::getNombre() const {return nombre;}
+string Empleado:: getApellido() const{return apellido;}
+float Empleado::getSueldoAnual() const{return sueldoAnual;}
+const int Empleado::getNumeroPagos() const{return numeroPagos;}
 
 int main(){
 
@@ -37,6 +48,8 @@ int main(){
     //Manejo NO automatico
     Empleado *p = new Empleado(); //Solicitamos memoria acudimos al puntero
     float sueldoEmpleado2 = p->calcularSueldoMensual();
+
+    printf("Nombre: %c", empleado1.getNombre());
 
     return 0;
 }
