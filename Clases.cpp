@@ -11,7 +11,8 @@ using namespace std;
 class Empleado{
     //visibilidad 
     public: //Permite establecer visibles los miembros desde afuera
-        float calcularSueldoMensual();
+        float calcularSueldoMensual();  // Sobrecarga de operadores
+        float calcularSueldoMensual(int numeroPagos);  // Es hacer la misma funcion pero con parametros
         string nombreCompleto();
 
         // Métodos Observadors (getters) - obtener la información
@@ -33,6 +34,9 @@ class Empleado{
 
 //Declaración de métodos
 float Empleado::calcularSueldoMensual(){
+    return (sueldoAnual/numeroPagos);
+}
+float Empleado::calcularSueldoMensual(int numeroPagos){
     return (sueldoAnual/numeroPagos);
 }
 string Empleado::nombreCompleto(){
