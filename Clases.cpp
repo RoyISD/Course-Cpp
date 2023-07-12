@@ -15,7 +15,7 @@ class Empleado{
         string nombreCompleto();
 
         // Métodos Observadors (getters) - obtener la información
-        string getNombre() const; // Prohibo alterar el estado del objeto, el valor
+        const string* getNombre() const; // Prohibo alterar el estado del objeto const after, el valor
         string getApellido() const;
         float getSueldoAnual() const;
         const int getNumeroPagos() const;
@@ -34,7 +34,7 @@ string Empleado::nombreCompleto(){
     return (nombre + " " + apellido);
 }
 // Getters - devuelven una copia del valor que se desea obtener
-string Empleado::getNombre() const {return nombre;}
+const string* Empleado::getNombre() const {return &nombre;} // Importante el const hace que usuario no pueda modificar el valor del objeto
 string Empleado:: getApellido() const{return apellido;}
 float Empleado::getSueldoAnual() const{return sueldoAnual;}
 const int Empleado::getNumeroPagos() const{return numeroPagos;}
