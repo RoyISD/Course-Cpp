@@ -20,10 +20,15 @@ class Empleado{
         float getSueldoAnual() const;
         const int getNumeroPagos() const;
 
+        //Métodos modificadores (Setters)
+        void setNombre(string nombre);
+        void setApellido(string apellido);
+        void setSueldoAnual(float sueldoAnual);
+
     private: // Visibilidad para atributos como metodos, desde el interior se puede
         string nombre, apellido;
         float sueldoAnual;
-        static const int numeroPagos = 2; //Static const ??
+        static const int numeroPagos = 12; //Static = se trata de atributo compartido por todos los objetos const = no podra ser modificado ??
 };
 
 //Declaración de métodos
@@ -33,6 +38,11 @@ float Empleado::calcularSueldoMensual(){
 string Empleado::nombreCompleto(){
     return (nombre + " " + apellido);
 }
+// Setters - inicializan el valor de la varible
+void Empleado::setNombre(string nombre){nombre = nombre;}
+void Empleado::setApellido(string apellido){apellido = "Román";}
+void Empleado::setSueldoAnual(float sueldoAnual){sueldoAnual = 28750.45;} 
+
 // Getters - devuelven una copia del valor que se desea obtener
 const string* Empleado::getNombre() const {return &nombre;} // Importante el const hace que usuario no pueda modificar el valor del objeto
 string Empleado:: getApellido() const{return apellido;}
@@ -49,7 +59,8 @@ int main(){
     Empleado *p = new Empleado(); //Solicitamos memoria acudimos al puntero
     float sueldoEmpleado2 = p->calcularSueldoMensual();
 
-    printf("Nombre: %c", empleado1.getNombre());
+    
+    printf("Nombre: %s", empleado1.getNombre());
 
     return 0;
 }
