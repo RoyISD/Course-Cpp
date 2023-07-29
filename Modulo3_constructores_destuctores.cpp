@@ -6,6 +6,7 @@ using namespace std;
 class Empleado{
     public: 
         Empleado(); // Constructor
+        Empleado(string nombre, string apellido);
         float calcularSueldoMensual();
         string NombreCompleto();
 
@@ -24,6 +25,11 @@ class Empleado{
 int main(){
 
     Empleado* empleado1 = new Empleado();
+    cout << empleado1->NombreCompleto() << endl;
+
+    Empleado* empleado2 = new Empleado("Brisa", "Reyes");
+    cout << empleado2->NombreCompleto() << endl;
+    return 0;
 }
 
 float Empleado::calcularSueldoMensual(){
@@ -38,4 +44,8 @@ void Empleado::setSueldoAnual(float _sueldo_){this->sueldoAnual = _sueldo_;}
 Empleado::Empleado(){
     Nombre = "Rodrigo";
     PrimerApellido = "Reyes";
+}
+Empleado::Empleado(string nombre, string apellido){
+    this->Nombre = nombre;
+    this->PrimerApellido = apellido;
 }
